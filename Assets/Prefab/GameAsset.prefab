@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &174464689672723227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 174464689672723224}
+  - component: {fileID: 174464689672723225}
+  m_Layer: 0
+  m_Name: GameAsset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &174464689672723224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174464689672723227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &174464689672723225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174464689672723227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0049c7d9599a79f409a0bb43ee653fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ground_1: {fileID: 21300000, guid: c2c29cde8fffa5d4a83d3bbe7ffa13b0, type: 3}
+  Ground_2: {fileID: 21300000, guid: be5bcc02923a175438ab33f3f6bd2f6a, type: 3}
+  Ground_3: {fileID: 21300000, guid: 606363ba34d339f40a816473c576ba87, type: 3}
+  Ground_4: {fileID: 21300000, guid: de137b0d82195fe44a1bfb22ce75c7d3, type: 3}
+  Ground_5: {fileID: 21300000, guid: ffce07ddf08e89b4aab375698df2cc59, type: 3}
+  Ground_6: {fileID: 21300000, guid: d340e859cce403849b1d4be04e593ec3, type: 3}
+  Ground_7: {fileID: 21300000, guid: 5270f523ee42b0941ac70c2b616eb387, type: 3}
+  Ground_8: {fileID: 21300000, guid: 0b12b20b584975a43825299ee58c6b84, type: 3}
+  Ground_9: {fileID: 21300000, guid: 28288da0a6c6fff428f3969db00c7c08, type: 3}
+  Ground_10: {fileID: 21300000, guid: 582dde52c74121b4889ca71d9c67fd99, type: 3}
+  Water_1: {fileID: 21300000, guid: cad670720f918234483615c60183c7f5, type: 3}
+  Water_2: {fileID: 21300000, guid: 578966a4447d5384895c7c7a6f12ca56, type: 3}
+  Water_3: {fileID: 21300000, guid: 75a4014fc8f6b0549a261cb1ecb81274, type: 3}
+  Water_4: {fileID: 21300000, guid: c169e947e0d2e7449a531a87729f25a6, type: 3}
+  Water_5: {fileID: 21300000, guid: 45fcdb2b20ae1a2488a21ff6d7aa507f, type: 3}
+  Grass_1: {fileID: 21300000, guid: 16415110fedde4340bd880a1906957e7, type: 3}
+  Grass_2: {fileID: 21300000, guid: 54a0c253efb058a43b6513f0d8ea6f32, type: 3}
+  Grass_3: {fileID: 21300000, guid: 710ca6834dccb6a4293a0059c3369cf8, type: 3}
+  Tree_1: {fileID: 21300000, guid: 74939936e9bf2d543b329b4e84e2df53, type: 3}
+  Tree_2: {fileID: 21300000, guid: 1c1f493fbec2a9d4e9c4e41a0d3dfc3b, type: 3}
+  Tree_3: {fileID: 21300000, guid: 124091fa03eb59947b20ce3a65f4e233, type: 3}
+  Tree_4: {fileID: 21300000, guid: 33b7e508af493524fb83ee52dc3ef71b, type: 3}
+  Tree_5: {fileID: 21300000, guid: 30ac20302f7afc04d8efbd43875cc5c1, type: 3}
+  Tree_6: {fileID: 21300000, guid: edd0c3c85030b0340a9e22e8e2510cd0, type: 3}
+  Fence_1: {fileID: 21300000, guid: 93ad802b17565c745b41c0e538a09e6f, type: 3}
+  Fence_2: {fileID: 21300000, guid: d720141e2cffd0044a42dfc6d83508b3, type: 3}
+  Fence_3: {fileID: 21300000, guid: 159761ce18e0b4e438590cae2bef00d3, type: 3}
+  Fence_4: {fileID: 21300000, guid: 3639fa2c254b31d49812b50b0019092b, type: 3}
+  Fence_5: {fileID: 21300000, guid: e2710d6d46ac0f2479d1c32afc06afd2, type: 3}
+  Fence_6: {fileID: 21300000, guid: e2d05f58c377cbd44a56863e96fa10c4, type: 3}
+  HighGround_1: {fileID: 21300000, guid: c1e4562363add8742950d685d0bebf37, type: 3}
+  Highground_2: {fileID: 21300000, guid: 4b6f5be1005cde2469953d376ddc78df, type: 3}
+  Stump_1: {fileID: 21300000, guid: e694fdd4ea6ab9f4f951e4aba2b03dbc, type: 3}
+  Enter_1: {fileID: 21300000, guid: 9d0a7b32519cd1e4785a6186566a8572, type: 3}
+  Enter_2: {fileID: 21300000, guid: 819dea8d7c1124a499019eec3ea79de6, type: 3}
+  Exit_1: {fileID: 21300000, guid: 10bf98a9747629d478cd3b9f67dabcbc, type: 3}
+  GroundSet: []
+  WaterSet: []
+  FenceSet: []
