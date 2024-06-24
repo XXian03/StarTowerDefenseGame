@@ -13,6 +13,8 @@ public class DrawPhaseHandler : MonoBehaviour
 
     void Start()
     {
+
+        Debug.Log("Ooi");
         cardDataBase.InitializeList();  // Load all cards in the game 
         deckHandler.ReDealTimes = 2;    // Ready the number to redeal to 2
 
