@@ -21,14 +21,21 @@ public class DeployPhaseHandler : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) // if press Mouse Left Click
             {
-                if (deckHandler.Maindeck.CardsInDeck[deploymentManager.SelectionState].CardType == CardType.Tower) // Summon Tower on boards and enter Gameplay
+                if(deckHandler.Maindeck.SelectingCard.CardType == CardType.Tower)
                 {
                     deploymentManager.SummonTowerOnBoard(); // Jump to Gameplay State
+                    
                 }
-                if (deckHandler.Maindeck.CardsInDeck[deploymentManager.SelectionState].CardType == CardType.Food) // Summon Tower on boards and enter Gameplay
+               else if(deckHandler.Maindeck.SelectingCard.CardType == CardType.Item)
                 {
-
+                    deploymentManager.GiveItem();
                 }
+                else if (deckHandler.Maindeck.SelectingCard.CardType == CardType.Food)
+                {
+                    deploymentManager.UseFood();
+                }
+
+
             }
         }
     }

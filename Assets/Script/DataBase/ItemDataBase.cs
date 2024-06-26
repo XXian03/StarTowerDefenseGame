@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ItemDataBase : MonoBehaviour
 {
-    public List<Food> AllFoodInGame;
+
+    public List<Item> AllItemInGame;
     private static ItemDataBase instance;
     public static ItemDataBase Instance => instance;
     public void Awake()
@@ -15,40 +16,44 @@ public class ItemDataBase : MonoBehaviour
 
     void Start()
     {
-        
+        InitializedItemList();
     }
 
     void Update()
     {
         
     }
-    
-    public void InitializeItemList()
-    {
-        AllFoodInGame = new List<Food>()
-        {
-            new Food(
-                101 , "Sunny Side Egg" , 
-            (Food item)=>
-            Debug.Log($"{item.GridObject.EntityOnGrid.name} has gain Atk + 3")
-            ),
-            
-            new Food(
-                102 , "Ramen" , 
-            (Food item)=>
-            Debug.Log($"{item.GridObject.EntityOnGrid.name} has gain Hp + 2")
-            ),
 
-            new Food(
-                103 , "Sandwich", 
-            (Food item)=> 
-            Debug.Log($"{item.GridObject.EntityOnGrid.name} has Eat A Sandwhich")
-            )
+    public void InitializedItemList()
+    {
+        GameAsset gA = GameAsset.GetInstance();
+        AllItemInGame = new List<Item>()
+        {
+            new Item(200,"Dynamite", 
+            "One time use, it dealts an great amount of Aoe damage to enemy who is in Range", gA.Dynamite,
+            ()=> Debug.Log("Enemy on range Kaboom") ),
+            
+            new Item(201,"Amulet Coin", 
+            "Gain extra coins by killing enemy" , gA.AmuletCoin,
+            ()=> Debug.Log("I got alot of coins")),
+            
+            new Item(202,"Red Cape", 
+            "Dealt Extra Fire Damage on Enemies" , gA.RedCape,
+            ()=> Debug.Log("I got alot of coins")),
+            
+            new Item(203,"Speed Up Boots", 
+            "Gain extra Atk Spd" , gA.SpeedUpBoots,
+            ()=> Debug.Log("I am moving faster")),
+            
+            new Item(204,"Ultimate Armour", 
+            "The Ultimate Aromur" , gA.UltimateArmour,
+            ()=> Debug.Log("Ulti")),
+            
+            new Item(205,"Bomb", 
+            "One time use, dealts an small Aoe damage to enemy who is in Range" , gA.Bomb,
+             ()=> Debug.Log("Small Kaboom")),
         };
     }
-
-
-
 
 
 }

@@ -52,6 +52,9 @@ public class GameAsset : MonoBehaviour
     public Sprite Enter_2;
     public Sprite Exit_1;
 
+    [Header("=== Area Square ===")]
+    public Sprite AreaSquare;
+
     [Header("=== Stage To Load ===")]
     public TextAsset FarmStage_1; // Easy to Change Stage in the future 
 
@@ -99,6 +102,7 @@ public class GameAsset : MonoBehaviour
     public Sprite RedCape;
     public Sprite SpeedUpBoots;
     public Sprite UltimateArmour;
+    public Sprite Bomb;
 
 
     [Header("=== Card UI ===")]
@@ -106,6 +110,7 @@ public class GameAsset : MonoBehaviour
     public Sprite NomralIcon;
     public Sprite RareIcon;
     public Sprite SuperRareIcon;
+    public GameObject TowerStatsTextBox;
 
     public List<Sprite> AllCardVisual;
 
@@ -171,10 +176,13 @@ public class GameAsset : MonoBehaviour
             SunnySideEgg,
             Ramen,
             Sandwich,
-            Dynamite
+            Dynamite,
+            Bomb
             // Continue Later 
 
         };
+
+
 
 
     }

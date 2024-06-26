@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class GameplayHandler : MonoBehaviour
+public class GameplayHandler : MonoBehaviour,  IPointerExitHandler
 {
 
     [SerializeField] DeckHandler deckHandler;
+
+    public int x;
+    public int y;
+
+   
 
     void Start()
     {
@@ -22,8 +28,7 @@ public class GameplayHandler : MonoBehaviour
             return;
         }
 
-        int x;
-        int y;
+
         
         Game.Instance.GetMainGrid().GetXY(Camera.main.ScreenToWorldPoint(Input.mousePosition), out x, out y);
         // Take the clicked position and turn it in to whole number first;
@@ -34,16 +39,35 @@ public class GameplayHandler : MonoBehaviour
             {
                 Game.Instance.GetMainGrid().GridObjects[x, y].EntityOnGrid.CallTowerFunction();
                 // From MainGame --> Get MainGrid ' s --> GridObject xy (which is what you selected) --> The thing on the grid's --> CallTowerFunction;    
-            }
-            
+                Game.Instance.GetMainGrid().GridObjects[x, y].EntityOnGrid.SwitchUiOn();
+            }  
         }
 
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            if (Game.Instance.GetMainGrid().GridObjects[x, y].EntityOnGrid != null)
+            {
+                Game.Instance.GetMainGrid().GridObjects[x, y].EntityOnGrid.SwitchUiOff();
+            }
+
+        }
+
+
+
+        if (Input.GetKeyDown(KeyCode.C))
         {
             Game.Instance.GameState = GameStateEnum.DrawPhase;
             deckHandler.Maindeck.DealThreeCards();
             deckHandler.ReDealTimes = 2;
         }
 
+    }
+
+
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+
+        Game.Instance.GetMainGrid().GridObjects[x, y].EntityOnGrid.SwitchUiOff();
     }
 }

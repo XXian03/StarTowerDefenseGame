@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeploymentBrush : MonoBehaviour
 {
     [Header("Debug")]
-    public int characterSelected;   // This is just a state for brush to show what can display
+    public int SelectionState;   // This is just a state for brush to show what can display
                                         // If 0 -- nothing will display , if  1 -- diplay the brush 
     private Game gameHandler; // This is mainly used for Referencing gameHandler
                                      // so you will be able to used gameHandler as a middle man to travel to other function
@@ -19,6 +19,7 @@ public class DeploymentBrush : MonoBehaviour
     [SerializeField] SpriteRenderer characterSr; // hold for character sprite 
 
     [SerializeField] DeploymentManager deploymentManager;
+    [SerializeField] DeckHandler deckHandler;
 
     void Start()
     {
@@ -89,17 +90,17 @@ public class DeploymentBrush : MonoBehaviour
         }
 
         // Cannot Deploy
-        if (characterSelected == 0)
+        if (SelectionState == 0)
         {
             squareSr.gameObject.SetActive(true);
             characterSr.gameObject.SetActive(false);
         }
 
         // Can Deploy
-        if (characterSelected == 1)
+        if (SelectionState == 1)
         {
             characterSr.gameObject.SetActive(true);
-            characterSr.sprite = GameAsset.GetInstance().AllCardVisual[deploymentManager.SelectionState];
+            characterSr.sprite = deckHandler.Maindeck.SelectingCard.CardVisual;
             // Go to GameAsset and get the Art based on selectionState;            
             squareSr.gameObject.SetActive(true);
         }
@@ -133,12 +134,14 @@ public class DeploymentBrush : MonoBehaviour
         // grid = GH mainGrid
         // selectedObject = the object you selecting with a snapping grid function on top
 
-
-        if (selectedObject.HasEntity() == true)  // if the selectedObject(which is also the Grid) got something  
+        
+        if (selectedObject.HasEntity() == true &&  deploymentManager.SelectionId <= 99)  
+         // if the selectedObject(which is also the Grid) got something + if it is a tower because Selection id is over 100 //  
         {
             CanDeploy = false; // then you cannot deploy;
             Debug.Log(CanDeploy);
         } 
+        
       
         DeploymentData data = new DeploymentData(); // create a new deployment data 
         Debug.Log(CanDeploy);

@@ -7,20 +7,12 @@ public class Food
 {
     public int Id;
     public string Name;
-    public Action<Food> FoodEffects;
-    public GameStateEnum NextState;
+    public Action<GridObject> FoodEffects;
     public GridObject GridObject;
 
 
-    public Food (int _id ,string _name , Action<Food> _act, GameStateEnum _nextState)
-    {
-        Id = _id;
-        Name = _name;
-        FoodEffects = _act;
-        NextState = _nextState;
-    }
 
-    public Food(int _id, string _name, Action<Food> _act)
+    public Food(int _id, string _name, Action<GridObject> _act)
     {
         Id = _id;
         Name = _name;
@@ -33,5 +25,10 @@ public class Food
         GridObject = _obj;
     }
 
+
+    public void AtkUp (int x ,GridObject gridObject)
+    {
+        gridObject.EntityOnGrid.EntityStats.Atk += x;
+    }
 
 }

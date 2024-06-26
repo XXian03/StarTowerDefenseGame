@@ -6,11 +6,18 @@ using UnityEngine;
 public class Deck
 {
     public List<Card> CardsInDeck;
+    public List<Card> DealtCards;
+    public List<Card> Grave;
+    public List<Card> RemoveFromPlay;
+
+    public Card SelectingCard;
 
     public Deck()
     {
         CardsInDeck = new List<Card>();  // Create a new list 
     }
+    
+    
     public void LoadDeck(List<Card> cards)  //A Shell for you to put your deck into it, (currently is empty)  
     {
         CardsInDeck = cards;
@@ -28,7 +35,6 @@ public class Deck
         }
         CardsInDeck.Add(card);
     }
-
     public void RemoveCard (Card card) // Function to remove a card 
     {
         if (CardsInDeck == null)
@@ -38,21 +44,91 @@ public class Deck
         CardsInDeck.Remove(card);
     }
 
+
+    public void SelectingACard(Card card)
+    {
+        SelectingCard = card;
+        DealtCards.Remove(card);
+    }
+
+
+    public void RemoveCardFromPlay ()
+    {
+        if (RemoveFromPlay == null)
+        {
+            RemoveFromPlay = new List<Card>();
+        }
+
+        RemoveFromPlay.Add(SelectingCard);
+        SelectingCard = null; 
+    }
+
+    public void ReturnAllCards(int _xTimes)
+    {
+        for (int i = 0; i < _xTimes; i++)
+        { 
+            CardsInDeck.Add(Grave[0]);   // Put the card into deck   
+            Grave.RemoveAt(0);      // Remove the cards from grave   
+        }
+    }
+
+    public void SendCardsToGrave(int _xTimes)
+    {
+        if (Grave == null)
+        {
+            Grave = new List<Card>();
+        }
+
+        for (int i = 0; i < _xTimes; i++)
+        {
+            Grave.Add(DealtCards[0]); // Put the card into grave    
+            DealtCards.RemoveAt(0);   // Remove the DealtCards  
+           
+        }
+    }
+
+    public void PrepareCardsToDeal(int _xTimes)
+    {
+        for(int i = 0; i < _xTimes; i ++)
+        {
+            DealtCards.Add(CardsInDeck[0]);
+            CardsInDeck.RemoveAt(0);
+
+            if (CardsInDeck.Count < 1)  // if my reamining cards in deck is smaller than 3 
+            {
+                ReturnAllCards(Grave.Count);
+                ShuffleDeck();
+            }
+
+        }
+    }
+
+
     public List<Card> DealThreeCards()  // Dealing 3 cards 
     {
-        List<Card> cardsToDeal = new List<Card>()  //Create a new list 
+        if(DealtCards == null)
         {
-            CardsInDeck[0],   // Pulling 3 cards out in the deck , since is shuffled at the start the cards that came out will be inconsistent
-            CardsInDeck[1],
-            CardsInDeck[2],
-        };
+            DealtCards = new List<Card>(); // For safety purpose  
+        }
 
-        RemoveCard(CardsInDeck[0]);  // once go through add the cards, remove it from the list so it won't dupe
-        RemoveCard(CardsInDeck[1]);
-        RemoveCard(CardsInDeck[2]);
+       
+    
+        if (DealtCards.Count > 0)  // if my dealt cards is not 0
+        {
+            SendCardsToGrave(DealtCards.Count);  
+        }
 
-        return cardsToDeal;
+
+   
+    
+
+         PrepareCardsToDeal(3) ;
+
+
+
+        return DealtCards;
     }
+
 
     public void ShuffleDeck() 
     {

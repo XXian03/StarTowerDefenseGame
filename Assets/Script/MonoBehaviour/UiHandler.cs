@@ -66,17 +66,18 @@ public class UiHandler : MonoBehaviour
     [Space]
     [Space]
 
-  
-   
+    [Header("=== Holder ===")]
+    [SerializeField] public GameObject StatsTextBoxHolder;
 
 
-   
-    
+
+
 
     // Debug Related Ui
     [Header("=== Debug State ===")]
     [SerializeField] public TextMeshProUGUI DebugGameState;
-
+    [SerializeField] public TextMeshProUGUI DebugCanDeploy;
+     
 
     // DeckHandler Reference // 
     [SerializeField] DeckHandler deckHandler;
@@ -124,6 +125,7 @@ public class UiHandler : MonoBehaviour
 
     void Update()
     {
+        DebugGameState.text = Game.Instance.GameState.ToString();
       
     }
 
@@ -133,10 +135,10 @@ public class UiHandler : MonoBehaviour
 
         for (int i = 0 ; i < AllCardImage.Count; i++)
         {
-            AllCardImage[i].sprite = deckHandler.Maindeck.CardsInDeck[i].CardVisual;
-            AllTmp[i].text = deckHandler.Maindeck.CardsInDeck[i].Name;
-            AllDescription[i].text = deckHandler.Maindeck.CardsInDeck[i].Description;
-            GetRarityImage(deckHandler.Maindeck.CardsInDeck[i].CardRarity, AllCardRarityImage[i]);  
+            AllCardImage[i].sprite = deckHandler.Maindeck.DealtCards[i].CardVisual;
+            AllTmp[i].text = deckHandler.Maindeck.DealtCards[i].Name;
+            AllDescription[i].text = deckHandler.Maindeck.DealtCards[i].Description;
+            GetRarityImage(deckHandler.Maindeck.DealtCards[i].CardRarity, AllCardRarityImage[i]);  
         }
     }
     public void GetRarityImage(Rarity _rarity , Image sr)

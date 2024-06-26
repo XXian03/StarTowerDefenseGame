@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class DrawPhaseHandler : MonoBehaviour
 {
     [SerializeField] CardDataBase cardDataBase;
@@ -13,10 +14,8 @@ public class DrawPhaseHandler : MonoBehaviour
 
     void Start()
     {
-
-        Debug.Log("Ooi");
         cardDataBase.InitializeList();  // Load all cards in the game 
-        deckHandler.ReDealTimes = 2;    // Ready the number to redeal to 2
+        deckHandler.ReDealTimes = 99;    // Ready the number to redeal to 2
 
         uiHandler.TextBox_0.SetActive(false);  // Start game turn off the description text box
         uiHandler.TextBox_1.SetActive(false);
@@ -25,7 +24,7 @@ public class DrawPhaseHandler : MonoBehaviour
   
 
         deckHandler.CreateDeck();  // Start of the game create a deck
-        deckHandler.Maindeck.ShuffleDeck(); // then shuffle
+        //deckHandler.Maindeck.ShuffleDeck(); // then shuffle
         deckHandler.Maindeck.DealThreeCards(); // then deal 3 cards
         // In DeckHandler has a function to ReDeal cards
     }

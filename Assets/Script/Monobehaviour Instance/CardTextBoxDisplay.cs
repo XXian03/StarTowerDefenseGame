@@ -4,27 +4,19 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class Card_0_Display : MonoBehaviour, IPointerEnterHandler , IPointerExitHandler
+public class CardTextBoxDisplay : MonoBehaviour, IPointerEnterHandler , IPointerExitHandler
 {
+    [SerializeField] int i;
     [SerializeField] UiHandler Ui;
-    void Start()
-    {
-        Ui.TextBox_0.SetActive(false);
-    }
-
-    void Update()
-    {
-
-    }
 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-            Ui.TextBox_0.SetActive(true);
+        Ui.AllTextBox[i].SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Ui.TextBox_0.SetActive(false);
+        Ui.AllTextBox[i].SetActive(false);
     }
 }

@@ -7,7 +7,7 @@ public class Game : MonoBehaviour
 {
     public GameStateEnum GameState;   // Basically same as Game State , but is easier to Reference compare to Int numbers
     [SerializeField] Transform GridParent; // Use this to hold all the instantiate object
-
+    [SerializeField] DeploymentBrush deploymentBrush;
 
     [SerializeField] UiHandler ui;
     private FakeGrid mainGrid; // Is a class , inside holds 5 important variables
@@ -52,6 +52,7 @@ public class Game : MonoBehaviour
             
         }
 
+        ui.DebugCanDeploy.text = deploymentBrush.CanDeploy.ToString();
 
 
 
