@@ -65,7 +65,7 @@ public class GameAsset : MonoBehaviour
     [Header("=== CharacterSprites ===")]
     public Sprite Star; // calling Star
 
-    [Header("=== TowerType ===")]
+    [Header("=== TowerType GameObject ===")]
     public GameObject TowerTypeStar;
     public GameObject TowerTypeCannon;
     public GameObject TowerTypeIceTower;
@@ -74,6 +74,16 @@ public class GameAsset : MonoBehaviour
     public GameObject TowerTypeManaTower;
 
     public List<GameObject> AllTowerObject;
+
+
+
+    [Header("=== EnemyType GameObject ===")]
+    public GameObject EnemySlime;
+    public GameObject EnemyBunnySlime;
+    public GameObject EnemySwordSlime;
+
+    public List<GameObject> AllEnemy;
+
 
 
     [Header("=== SummonType ===")]
@@ -114,6 +124,29 @@ public class GameAsset : MonoBehaviour
 
     public List<Sprite> AllCardVisual;
 
+    public GameObject ParentBox;
+
+
+    [Header("=== Enemy Sprite ===")]
+    public Sprite Slime;
+    public Sprite BunnySlime;
+    public Sprite SwordSlime;
+
+    public List<Sprite> AllEnemySprite;
+
+
+
+    [Header("=== Tower Animation ===")]
+
+    public List<List<Sprite>> AllListIdle;
+
+    [SerializeField] List<Sprite> CannonIdle;
+    [SerializeField] List<Sprite> IceTowerIdle;
+    [SerializeField] List<Sprite> FireTowerIdle;
+
+
+    [Header("=== Parent Boxes ===")]
+    [SerializeField] public GameObject GridParent;
 
 
     [Space]
@@ -138,14 +171,12 @@ public class GameAsset : MonoBehaviour
             Ground_2,
             Ground_3,
         };
-
         WaterSet = new List<Sprite>
         {
             Water_1,
             Water_2,
             Water_3,
         };
-
         FenceSet = new List<Sprite>
         {
             Fence_1,
@@ -163,6 +194,37 @@ public class GameAsset : MonoBehaviour
             TowerTypeStar,   // placeholder
             TowerTypeManaTower,            
         };
+
+
+        AllEnemy = new List<GameObject>
+        {
+            EnemySlime,
+            EnemyBunnySlime,
+            EnemySwordSlime,
+        };
+
+        AllEnemySprite = new List<Sprite>
+        {
+            Slime,
+            BunnySlime,
+            SwordSlime,
+        };
+
+
+
+
+        AllListIdle = new List<List<Sprite>>
+        {
+            CannonIdle,
+            IceTowerIdle,
+            FireTowerIdle,
+        };
+
+
+
+
+
+
 
         AllCardVisual = new List<Sprite>
         {

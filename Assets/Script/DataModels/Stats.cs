@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stats
 {
+    public int Id;
     public int Lv; // For Character Only
     public string Name;
     public int Atk;
@@ -38,11 +39,11 @@ public class Stats
 
 
     // Enemy Stats //
-    public Stats(string _name, int _hp , int _atk, float _atkSpd, int _goldDrop)
+    public Stats(int _id, string _name, int _hp , float _atkSpd, int _goldDrop)
     {
+        Id = _id;
         Name = _name;
         Hp = _hp;
-        Atk = _atk;
         AtkSpd = _atkSpd;
         GoldDrop = _goldDrop;
     }

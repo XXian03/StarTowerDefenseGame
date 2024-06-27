@@ -9,4 +9,6 @@ public enum GameStateEnum
     DeployPhase = 2,
     GameplayPhase = 3,
 
+
+    EnemyDebugDeploy = 99,
 }

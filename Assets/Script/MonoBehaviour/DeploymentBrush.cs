@@ -33,7 +33,7 @@ public class DeploymentBrush : MonoBehaviour
 
     private void SelectionFuction()
     {
-        if(Game.Instance.GameState != GameStateEnum.DeployPhase) // if GameState not "DeployPhase"
+        if(Game.Instance.GameState != GameStateEnum.DeployPhase || Game.Instance.GameState != GameStateEnum.EnemyDebugDeploy) // if GameState not "DeployPhase"
         {
             squareSr.gameObject.SetActive(false);  // closed
             characterSr.gameObject.SetActive(false); // closed 
@@ -101,6 +101,14 @@ public class DeploymentBrush : MonoBehaviour
         {
             characterSr.gameObject.SetActive(true);
             characterSr.sprite = deckHandler.Maindeck.SelectingCard.CardVisual;
+            // Go to GameAsset and get the Art based on selectionState;            
+            squareSr.gameObject.SetActive(true);
+        }
+
+        if (SelectionState == 2)
+        {
+            characterSr.gameObject.SetActive(true);
+            characterSr.sprite = GameAsset.GetInstance().AllEnemySprite[deploymentManager.SelectionId];
             // Go to GameAsset and get the Art based on selectionState;            
             squareSr.gameObject.SetActive(true);
         }

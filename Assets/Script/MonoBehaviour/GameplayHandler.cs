@@ -35,7 +35,7 @@ public class GameplayHandler : MonoBehaviour,  IPointerExitHandler
 
         if (Input.GetKeyDown(KeyCode.Mouse0)) 
         {
-            if(Game.Instance.GetMainGrid().GridObjects[x, y].EntityOnGrid != null)
+            if(Game.Instance.GetMainGrid().GridObjects[x , y].EntityOnGrid != null)
             {
                 Game.Instance.GetMainGrid().GridObjects[x, y].EntityOnGrid.CallTowerFunction();
                 // From MainGame --> Get MainGrid ' s --> GridObject xy (which is what you selected) --> The thing on the grid's --> CallTowerFunction;    
@@ -59,6 +59,13 @@ public class GameplayHandler : MonoBehaviour,  IPointerExitHandler
             Game.Instance.GameState = GameStateEnum.DrawPhase;
             deckHandler.Maindeck.DealThreeCards();
             deckHandler.ReDealTimes = 2;
+        }
+
+
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Game.Instance.GameState = GameStateEnum.EnemyDebugDeploy;
         }
 
     }

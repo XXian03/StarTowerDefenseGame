@@ -32,6 +32,16 @@ public class FakeGrid
         GridObjects = new GridObject[width, height];
     }
 
+
+    // For Area Square // The origin will be the entity's origin 
+    public FakeGrid(int _width, int _height, float _cellSize)
+    {
+        width = _width;
+        height = _height;
+        CellSize = _cellSize;
+        GridObjects = new GridObject[width, height];
+    }
+
     public void GetXY(Vector3 worldPosition, out int x, out int y)
     {
         x = Mathf.FloorToInt((worldPosition - originPosition).x / CellSize); // hard code the origin postition now first? 

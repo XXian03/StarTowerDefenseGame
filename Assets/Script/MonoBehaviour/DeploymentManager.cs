@@ -40,6 +40,13 @@ public class DeploymentManager : MonoBehaviour
     {
         objToSetIn.SetEntity(entity);
     }
+
+    public void SetEnemy(GridObject objToSetIn, Enemies enemy)
+    {
+        objToSetIn.SetEnemy(enemy);
+    }
+
+
     public void SummonTowerOnBoard()
     {
         DeploymentData data = brush.CheckDeployable();
@@ -60,7 +67,11 @@ public class DeploymentManager : MonoBehaviour
         // Summon the tower out based on ther SelectionId (in this case is only 0 -> 99 )
        
         GameObject _textbox = Instantiate(GameAsset.GetInstance().TowerStatsTextBox, data.WorldPosition, Quaternion.identity);
-       // Create a box on the position of the tower
+        // Create a box on the position of the tower
+
+        GameObject parentbox = Instantiate(GameAsset.GetInstance().ParentBox, data.WorldPosition, Quaternion.identity);
+
+        parentbox.transform.SetParent(obj.transform);
 
         _textbox.transform.SetParent(uiHandler.StatsTextBoxHolder.transform); 
         // Set the text box as child of the StatsTextBoxHolder so that canvas display the ui
@@ -107,19 +118,30 @@ public class DeploymentManager : MonoBehaviour
         }
         deckHandler.Maindeck.RemoveCardFromPlay();
 
+
         _textbox.GetComponent<StatsDisplayer>().SetEntityOnDisplayer(tower.GetComponent<Tower>());
         // text will get it's StatsDisplayer's SetEntityOnText  
 
         tower.SetTextDisplayer(_textbox);
         //_textbox take the statsDisplayer on Entity and set it to himself
 
+        tower.GetAttackGrid(GridPatternDataBase.Instance.AllAreaSquare[0]); // the 0 can change to a int number from the entity's grid id later 
+        GridPatternDataBase.Instance.CreateAreaSquare(GridPatternDataBase.Instance.AllAreaSquare[0], parentbox, data.WorldPosition);
+
+        tower.SetParentBox(parentbox);
+
+        tower.GetIdleFrames(GameAsset.GetInstance().AllListIdle[SelectionId]);
+
+
+
 
         Game.Instance.GameState = GameStateEnum.GameplayPhase;
 
 
     }
+    // Summoned Tower will have... 
+    // 1.GameObject 2. StatsTextBox(GameObject) 3.Tower(Added) 4.Collider(Added) 5.AttackGrid(ListOfGridObject) 6.Parentbox to hold area square
     // After Summon will jump to GameplayState //
-
     public void GiveItem()
     {
         DeploymentData data = brush.CheckDeployable();
@@ -140,7 +162,6 @@ public class DeploymentManager : MonoBehaviour
 
     }
     // After Giving Item will jump to GameplayState //
-
     public void UseFood()
     {
         DeploymentData data = brush.CheckDeployable();
@@ -163,10 +184,6 @@ public class DeploymentManager : MonoBehaviour
         }
 
     }
-
-
-
-
     public void CallTowerType(int _x)
     {
 
@@ -185,20 +202,58 @@ public class DeploymentManager : MonoBehaviour
     }
     // This is for UI Button use , will give selection id a number based on the cards you picked 
 
-    public void ApplyItem()
+
+    // --------------//
+    // Debug Purpose //
+    // -------------//
+    public void DeployEnemy()
     {
-        DeploymentData data = brush.CheckDeployable(); // Deployment data reference you bursh position 
+        DeploymentData data = brush.CheckDeployable();
 
-        FakeGrid grid = Game.Instance.GetMainGrid(); // Based on the main grid
-        GridObject gridObject = grid.GetGridObject(data.XY.x, data.XY.y); // Get the data for the object where your brush is
-
-        if (gridObject.HasEntity() == true) 
+        if(!data.CanDeploy)
         {
-           // gridObject.EntityOnGrid.
+            return;
         }
+
+        FakeGrid grid = Game.Instance.GetMainGrid(); // Referencing the main grid
+        GridObject gridObject = grid.GetGridObject(data.XY.x, data.XY.y); // Refrencing current grid you selecting
+        GameObject obj = Instantiate(GameAsset.GetInstance().AllEnemy[0], data.WorldPosition, Quaternion.identity);
+
+        Enemies enemy = obj.AddComponent<Enemies>();
+        enemy.gameObject.AddComponent<BoxCollider2D>();
+
+        if(data.CanDeploy == true)
+        {
+            switch (SelectionId)
+            {
+                case 0
+                    : enemy.SetUp(new Stats(0, "Slime", 30, 1f, 100)); // The Id on it currently is just for place holder use   
+                    SetEnemy(gridObject, enemy);
+                    break;
+                case 1
+                    : enemy.SetUp(new Stats(1, "BunnySlime", 40, 1f, 100));
+                    SetEnemy(gridObject, enemy);
+                    break;
+                case 2
+                    : enemy.SetUp(new Stats(2, "Sword Slime", 50, 1f, 100));
+                    SetEnemy(gridObject, enemy);
+                    break;
+
+            }
+        }
+
+        Game.Instance.GameState = GameStateEnum.GameplayPhase;
 
 
     }
+    public void CallEnemyType(int _x)
+    {
 
-    
+        SelectionId = _x;
+        brush.SelectionState = 2; // Change the brush state to can brush
+    }
+
+
+
+
 }

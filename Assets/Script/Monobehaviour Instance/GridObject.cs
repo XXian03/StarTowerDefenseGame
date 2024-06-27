@@ -11,7 +11,10 @@ public class GridObject
     public TextMeshProUGUI Tmp;
     public TileEnum tileenum;
     public int TileType;  // Determine what tile you are, deployable or non deployable etc 
-    public Entity EntityOnGrid; 
+    public Entity EntityOnGrid;
+
+    public Enemies EnemyOnGrid;
+
     /* 0 = Can Deploy
      * 1 = Can Deploy but need to remove 
      * 2 = Water , Only Deploy if Aquatic type
@@ -43,6 +46,12 @@ public class GridObject
     {
         EntityOnGrid = entity;  // this means whatever you set in here will be become the thing here 
     }
+
+    public void SetEnemy(Enemies enemy)
+    {
+        EnemyOnGrid = enemy; // this means you can set an enemy on top of the grid because you will need to check if there is enemy or not 
+    }
+
     public Vector3 WorldPosition(float cellsize , Vector3 originPosition)
     {
         return originPosition + new Vector3(cellsize * x + (cellsize / 2), cellsize * y + (cellsize / 2));

@@ -81,7 +81,19 @@ public class UiHandler : MonoBehaviour
 
     // DeckHandler Reference // 
     [SerializeField] DeckHandler deckHandler;
-  
+
+
+
+    // EnemyDebugDeploy Use Buttons
+    [Header("===Enemy Debug State ===")]
+    [SerializeField] public GameObject EnemyDebugDeploy;
+
+    [SerializeField] Button Slime;
+    [SerializeField] Button BunnySlime;
+    [SerializeField] Button SwordSlime;
+
+
+
 
     void Start()
     {

@@ -80,6 +80,63 @@ MonoBehaviour:
   Enter_1: {fileID: 21300000, guid: 9d0a7b32519cd1e4785a6186566a8572, type: 3}
   Enter_2: {fileID: 21300000, guid: 819dea8d7c1124a499019eec3ea79de6, type: 3}
   Exit_1: {fileID: 21300000, guid: 10bf98a9747629d478cd3b9f67dabcbc, type: 3}
+  AreaSquare: {fileID: 21300000, guid: 82ce12cf293b2534095e38bb4c0ef8b3, type: 3}
+  FarmStage_1: {fileID: 4900000, guid: 73be25ef2878eab44a9fc14285b13f3d, type: 3}
+  Star: {fileID: 21300000, guid: ce6eea8b9d172a0408c0bd58434aafd1, type: 3}
+  TowerTypeStar: {fileID: 1016736368341677535, guid: e98c4eff186eed440bfade680ff4546f, type: 3}
+  TowerTypeCannon: {fileID: 1016736368341677535, guid: 3ef1d8332366abe4e8277b82035c244a, type: 3}
+  TowerTypeIceTower: {fileID: 1016736368341677535, guid: 124ea4e74e54dc344a7cc293cc2af772, type: 3}
+  TowerTypeFireTower: {fileID: 1016736368341677535, guid: 139a5524da2c0da438043d47ab3baf9f, type: 3}
+  TowerTypeBoltTower: {fileID: 1016736368341677535, guid: 6be6413b085ea8048ac87a0e7ffb0f2a, type: 3}
+  TowerTypeManaTower: {fileID: 1016736368341677535, guid: f5efdae7b0026674da306da4fb6de620, type: 3}
+  AllTowerObject: []
+  EnemySlime: {fileID: 9096790014987642745, guid: 30e73898d16a3dc479a8cd38a54e3bd7, type: 3}
+  EnemyBunnySlime: {fileID: 2704884268522160329, guid: ff7f3445a4012b248ad73cc4c7367543, type: 3}
+  EnemySwordSlime: {fileID: 7656803690083065584, guid: d856c8cc289680a45906829b6ff4fc70, type: 3}
+  AllEnemy: []
+  StarKnight: {fileID: 0}
+  NeptuneDragon: {fileID: 0}
+  Cannon: {fileID: 21300000, guid: 0c70f12091f7e2d4cb9f5aa05153e59f, type: 3}
+  IceTower: {fileID: 21300000, guid: f92ab1ef55758ac479be9b785b23c563, type: 3}
+  FireTower: {fileID: 21300000, guid: 6ecf9088f324f6243b67048d8113dd6f, type: 3}
+  BoltTower: {fileID: 21300000, guid: 596e09875bd1667429e93b955d02878c, type: 3}
+  WideCannon: {fileID: 21300000, guid: 347f8e9b8954f8a46a9eb41c1b82f7ab, type: 3}
+  ArrowBolt: {fileID: 21300000, guid: 93ac3d27a9a495e44905452666167a28, type: 3}
+  ManaTower: {fileID: 21300000, guid: 3981e7cc83402b44d8dba59f120cee5f, type: 3}
+  SunnySideEgg: {fileID: 0}
+  Ramen: {fileID: 21300000, guid: 50b1fd56d0b5f7c419b29d29627a80fb, type: 3}
+  Sandwich: {fileID: 21300000, guid: 9670e664f61ca4d4ab772bd667b6fc52, type: 3}
+  Dynamite: {fileID: 21300000, guid: a1ebeb3eed9c7d740bebce427104663e, type: 3}
+  AmuletCoin: {fileID: 21300000, guid: 7a8c4279e6859c84dbb7ae615a9ec48a, type: 3}
+  RedCape: {fileID: 21300000, guid: 5f7cdb107431d454387f61be9cfe35a3, type: 3}
+  SpeedUpBoots: {fileID: 21300000, guid: f4811213ca61f114681a6cdb2f424722, type: 3}
+  UltimateArmour: {fileID: 0}
+  Bomb: {fileID: 21300000, guid: 58a6ca05afdb6fa418b2df9a1697bb54, type: 3}
+  CardFrame: {fileID: 21300000, guid: 0239cf5d771de6f48a5cfa7b416e9378, type: 3}
+  NomralIcon: {fileID: 21300000, guid: 06e6bfabed89ad84a8574ce4c55fd3ae, type: 3}
+  RareIcon: {fileID: 21300000, guid: 4f9cfb4aa6abca14fb2a40def4a3df10, type: 3}
+  SuperRareIcon: {fileID: 21300000, guid: eab6c20f24a46b54cb2f562da8a11029, type: 3}
+  TowerStatsTextBox: {fileID: 4636822697108443128, guid: 261eb9bfe2184cf4b96c9b7a11f425fe, type: 3}
+  AllCardVisual: []
+  ParentBox: {fileID: 3650805586094555320, guid: fd86315dc5b491d468bf8a236808981a, type: 3}
+  Slime: {fileID: 21300000, guid: 48322a11f994b1c40862a1bee55d7a1a, type: 3}
+  BunnySlime: {fileID: 21300000, guid: f0c6b87650d87e047b8e4faf7e5eddf7, type: 3}
+  SwordSlime: {fileID: 21300000, guid: e048f066c50f61849a086678e6770c44, type: 3}
+  CannonIdle:
+  - {fileID: 1875776188, guid: 4c28ae6a4383bb94895b80509e489c44, type: 3}
+  - {fileID: -237481494, guid: 4c28ae6a4383bb94895b80509e489c44, type: 3}
+  - {fileID: 1428661600, guid: 4c28ae6a4383bb94895b80509e489c44, type: 3}
+  - {fileID: -93356815, guid: 4c28ae6a4383bb94895b80509e489c44, type: 3}
+  IceTowerIdle:
+  - {fileID: -640134348, guid: 9a29186dd573e5148a23cedbbf6d2d07, type: 3}
+  - {fileID: 1756717208, guid: 9a29186dd573e5148a23cedbbf6d2d07, type: 3}
+  - {fileID: 301696570, guid: 9a29186dd573e5148a23cedbbf6d2d07, type: 3}
+  - {fileID: 1598706280, guid: 9a29186dd573e5148a23cedbbf6d2d07, type: 3}
+  FireTowerIdle:
+  - {fileID: 1920335012, guid: c4a1c8f85b18de644a48c6e7b844cf05, type: 3}
+  - {fileID: -790056245, guid: c4a1c8f85b18de644a48c6e7b844cf05, type: 3}
+  - {fileID: 535543454, guid: c4a1c8f85b18de644a48c6e7b844cf05, type: 3}
+  - {fileID: -397520676, guid: c4a1c8f85b18de644a48c6e7b844cf05, type: 3}
   GroundSet: []
   WaterSet: []
   FenceSet: []
