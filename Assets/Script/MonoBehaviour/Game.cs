@@ -20,7 +20,7 @@ public class Game : MonoBehaviour
     public static Game Instance => instance;
 
 
-
+    
 
     private void Awake()
     {
@@ -81,6 +81,9 @@ public class Game : MonoBehaviour
            
         }    
 
+        
+
+
     }
 
 
@@ -102,6 +105,11 @@ public class Game : MonoBehaviour
         return mainGrid;
     }
 
+
+    public GridObject GetMainGridGridObject(int x , int y)  // Getting main grid's GridObject
+    {
+        return mainGrid.GetGridObject(x, y);
+    }
 
 
 }

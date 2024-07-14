@@ -7,6 +7,8 @@ public class GameplayHandler : MonoBehaviour,  IPointerExitHandler
 {
 
     [SerializeField] DeckHandler deckHandler;
+    [SerializeField] DeploymentManager deploymentManager; // for EnemyDbugModeUsage
+
 
     public int x;
     public int y;
@@ -66,6 +68,7 @@ public class GameplayHandler : MonoBehaviour,  IPointerExitHandler
         if (Input.GetKeyDown(KeyCode.P))
         {
             Game.Instance.GameState = GameStateEnum.EnemyDebugDeploy;
+            deploymentManager.SelectionId = 0;
         }
 
     }

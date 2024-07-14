@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeploymentManager : MonoBehaviour
 {
-    [SerializeField] DeploymentBrush brush; // Referecing Brushes
+    [SerializeField]public DeploymentBrush brush; // Referecing Brushes
     private Game gameHandler;        // Refrencing GameHandler
     public int SelectionId;    // Using for changing Selection Stage 
     /* 
@@ -29,10 +29,7 @@ public class DeploymentManager : MonoBehaviour
 
     void Update()
     {
-        if(Game.Instance.GameState == GameStateEnum.GameplayPhase)
-        {
-            // I can activate item's effect 
-        }
+   
     
     }
 
@@ -41,7 +38,7 @@ public class DeploymentManager : MonoBehaviour
         objToSetIn.SetEntity(entity);
     }
 
-    public void SetEnemy(GridObject objToSetIn, Enemies enemy)
+    public void SetEnemy(GridObject objToSetIn, Enemy enemy)
     {
         objToSetIn.SetEnemy(enemy);
     }
@@ -119,15 +116,14 @@ public class DeploymentManager : MonoBehaviour
         deckHandler.Maindeck.RemoveCardFromPlay();
 
 
-        _textbox.GetComponent<StatsDisplayer>().SetEntityOnDisplayer(tower.GetComponent<Tower>());
+        _textbox.GetComponent<EntityStatsDisplayer>().SetEntityOnDisplayer(tower.GetComponent<Tower>());
         // text will get it's StatsDisplayer's SetEntityOnText  
 
         tower.SetTextDisplayer(_textbox);
         //_textbox take the statsDisplayer on Entity and set it to himself
 
-        tower.GetAttackGrid(GridPatternDataBase.Instance.AllAreaSquare[0]); // the 0 can change to a int number from the entity's grid id later 
-        GridPatternDataBase.Instance.CreateAreaSquare(GridPatternDataBase.Instance.AllAreaSquare[0], parentbox, data.WorldPosition);
-
+        tower.GetGridObject(gridObject);
+  
         tower.SetParentBox(parentbox);
 
         tower.GetIdleFrames(GameAsset.GetInstance().AllListIdle[SelectionId]);
@@ -136,8 +132,6 @@ public class DeploymentManager : MonoBehaviour
 
 
         Game.Instance.GameState = GameStateEnum.GameplayPhase;
-
-
     }
     // Summoned Tower will have... 
     // 1.GameObject 2. StatsTextBox(GameObject) 3.Tower(Added) 4.Collider(Added) 5.AttackGrid(ListOfGridObject) 6.Parentbox to hold area square
@@ -217,10 +211,14 @@ public class DeploymentManager : MonoBehaviour
 
         FakeGrid grid = Game.Instance.GetMainGrid(); // Referencing the main grid
         GridObject gridObject = grid.GetGridObject(data.XY.x, data.XY.y); // Refrencing current grid you selecting
-        GameObject obj = Instantiate(GameAsset.GetInstance().AllEnemy[0], data.WorldPosition, Quaternion.identity);
+        GameObject obj = Instantiate(GameAsset.GetInstance().AllEnemy[SelectionId], data.WorldPosition, Quaternion.identity);
 
-        Enemies enemy = obj.AddComponent<Enemies>();
+        Enemy enemy = obj.AddComponent<Enemy>();
         enemy.gameObject.AddComponent<BoxCollider2D>();
+        enemy.GetComponent<BoxCollider2D>().isTrigger = true;
+
+        GameObject _text = Instantiate(GameAsset.GetInstance().EnemyStatsTextBox, data.WorldPosition, Quaternion.identity);
+        _text.transform.SetParent(uiHandler.StatsTextBoxHolder.transform);
 
         if(data.CanDeploy == true)
         {
@@ -241,6 +239,10 @@ public class DeploymentManager : MonoBehaviour
 
             }
         }
+
+        _text.GetComponent<EnemyStatsDisplayer>().SetEnemyStats(enemy);
+
+        Debug.Log($"{gridObject.EnemyOnGrid.name}");
 
         Game.Instance.GameState = GameStateEnum.GameplayPhase;
 

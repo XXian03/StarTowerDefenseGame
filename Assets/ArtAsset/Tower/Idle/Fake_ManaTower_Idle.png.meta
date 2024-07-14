@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4a1c8f85b18de644a48c6e7b844cf05
+guid: 7b4d4490bbde4814ab384df4ecdf86f4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FakeFireTower_Idle_0
+      name: Fake_ManaTower_Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07bffabe95085cf479e969e6e771f8c2
-      internalID: 1920335012
+      spriteID: ca68ebe06a778874c8eba8d6fd37f105
+      internalID: -1839596903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FakeFireTower_Idle_1
+      name: Fake_ManaTower_Idle_1
       rect:
         serializedVersion: 2
         x: 128
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b8cd701d14973e4db25fd8033d2284a
-      internalID: -790056245
+      spriteID: b9272f53d042bb24cbb31efb7a5cc62f
+      internalID: -1668854983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FakeFireTower_Idle_2
+      name: Fake_ManaTower_Idle_2
       rect:
         serializedVersion: 2
         x: 256
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9c8a5322118e71468f5b6034078e662
-      internalID: 535543454
+      spriteID: 9c35a5dafaade8741a1375a297657f31
+      internalID: -1837594706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FakeFireTower_Idle_3
+      name: Fake_ManaTower_Idle_3
       rect:
         serializedVersion: 2
         x: 384
@@ -193,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb8500a85b03c2646af2d624bb6ee287
-      internalID: -397520676
+      spriteID: de3ed610294390f408657c942c6e29b2
+      internalID: -235011439
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FakeFireTower_Idle_3: -397520676
-      FakeFireTower_Idle_2: 535543454
-      FakeFireTower_Idle_1: -790056245
-      FakeFireTower_Idle_0: 1920335012
+      Fake_ManaTower_Idle_2: -1837594706
+      Fake_ManaTower_Idle_0: -1839596903
+      Fake_ManaTower_Idle_3: -235011439
+      Fake_ManaTower_Idle_1: -1668854983
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

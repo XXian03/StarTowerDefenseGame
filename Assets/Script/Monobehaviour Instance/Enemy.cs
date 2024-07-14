@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemies : MonoBehaviour
+[System.Serializable]
+public class Enemy : MonoBehaviour
 {
 
     public Stats EnemyStats; // Stats for the deployed enemy
     private protected SpriteRenderer enemySr; // it's sprite renderer
     public FakeGrid AttackRange; // the attacking range 
+    public GridObject gridObject;
+
 
     public GameObject TextDisplayer;
 
@@ -19,6 +22,7 @@ public class Enemies : MonoBehaviour
     void Update()
     {
         
+        
     }
 
 
@@ -26,7 +30,6 @@ public class Enemies : MonoBehaviour
     {
         EnemyStats = _enemystats;
     }
-
 
     
 }

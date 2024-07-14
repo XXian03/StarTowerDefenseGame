@@ -17,7 +17,7 @@ public class DeckHandler : MonoBehaviour
         Maindeck.AddCard(CardDataBase.Instnace.GetCard(2));
         Maindeck.AddCard(CardDataBase.Instnace.GetCard(200));
         Maindeck.AddCard(CardDataBase.Instnace.GetCard(201));
-        Maindeck.AddCard(CardDataBase.Instnace.GetCard(5));
+        Maindeck.AddCard(CardDataBase.Instnace.GetCard(0));
         Maindeck.AddCard(CardDataBase.Instnace.GetCard(101));
         Maindeck.AddCard(CardDataBase.Instnace.GetCard(102));
         Maindeck.AddCard(CardDataBase.Instnace.GetCard(1));

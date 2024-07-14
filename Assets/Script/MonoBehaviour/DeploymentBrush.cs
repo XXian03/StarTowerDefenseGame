@@ -33,7 +33,7 @@ public class DeploymentBrush : MonoBehaviour
 
     private void SelectionFuction()
     {
-        if(Game.Instance.GameState != GameStateEnum.DeployPhase || Game.Instance.GameState != GameStateEnum.EnemyDebugDeploy) // if GameState not "DeployPhase"
+        if(Game.Instance.GameState != GameStateEnum.DeployPhase && Game.Instance.GameState != GameStateEnum.EnemyDebugDeploy) // if GameState not "DeployPhase"
         {
             squareSr.gameObject.SetActive(false);  // closed
             characterSr.gameObject.SetActive(false); // closed 

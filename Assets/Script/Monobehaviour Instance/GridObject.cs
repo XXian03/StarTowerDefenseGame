@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[System.Serializable]
 public class GridObject
 {
     public int x;
@@ -12,8 +13,7 @@ public class GridObject
     public TileEnum tileenum;
     public int TileType;  // Determine what tile you are, deployable or non deployable etc 
     public Entity EntityOnGrid;
-
-    public Enemies EnemyOnGrid;
+   [SerializeField] public Enemy EnemyOnGrid;
 
     /* 0 = Can Deploy
      * 1 = Can Deploy but need to remove 
@@ -34,6 +34,8 @@ public class GridObject
         this.y = _y;
     }
 
+
+
     public bool HasEntity()  //Bool that check is there anything in the Grid 
     {
         if(EntityOnGrid == null) // If the entity on the grid got nothing 
@@ -42,12 +44,23 @@ public class GridObject
         }
         return true; // otherwise it means there is something here, which cannot deploy
     }
+
+
+    public bool HasEnemy() // Check for enemy
+    {
+        if(EnemyOnGrid == null) // if there is no enemy
+        {
+            return false; // rerturn false (which means no enemy)
+        }
+        return true; // else return true
+    }
+
     public void SetEntity(Entity entity) 
     {
         EntityOnGrid = entity;  // this means whatever you set in here will be become the thing here 
     }
 
-    public void SetEnemy(Enemies enemy)
+    public void SetEnemy(Enemy enemy)
     {
         EnemyOnGrid = enemy; // this means you can set an enemy on top of the grid because you will need to check if there is enemy or not 
     }

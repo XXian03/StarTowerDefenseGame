@@ -53,7 +53,7 @@ public class GameAsset : MonoBehaviour
     public Sprite Exit_1;
 
     [Header("=== Area Square ===")]
-    public Sprite AreaSquare;
+    public GameObject AreaSquare;
 
     [Header("=== Stage To Load ===")]
     public TextAsset FarmStage_1; // Easy to Change Stage in the future 
@@ -71,6 +71,8 @@ public class GameAsset : MonoBehaviour
     public GameObject TowerTypeIceTower;
     public GameObject TowerTypeFireTower;
     public GameObject TowerTypeBoltTower;
+    public GameObject TowerTypeWideTower;
+    public GameObject TowerTypeArrowBolt;
     public GameObject TowerTypeManaTower;
 
     public List<GameObject> AllTowerObject;
@@ -121,6 +123,7 @@ public class GameAsset : MonoBehaviour
     public Sprite RareIcon;
     public Sprite SuperRareIcon;
     public GameObject TowerStatsTextBox;
+    public GameObject EnemyStatsTextBox;
 
     public List<Sprite> AllCardVisual;
 
@@ -143,6 +146,10 @@ public class GameAsset : MonoBehaviour
     [SerializeField] List<Sprite> CannonIdle;
     [SerializeField] List<Sprite> IceTowerIdle;
     [SerializeField] List<Sprite> FireTowerIdle;
+    [SerializeField] List<Sprite> BoltTowerIdle;
+    [SerializeField] List<Sprite> WideCanonIdle;
+    [SerializeField] List<Sprite> ArrowBotIdle;
+    [SerializeField] List<Sprite> ManaTowerIdle;
 
 
     [Header("=== Parent Boxes ===")]
@@ -190,10 +197,22 @@ public class GameAsset : MonoBehaviour
             TowerTypeIceTower,
             TowerTypeFireTower,
             TowerTypeBoltTower,
-            TowerTypeStar,   // placeholder
-            TowerTypeStar,   // placeholder
+            TowerTypeWideTower,   
+            TowerTypeArrowBolt,   
             TowerTypeManaTower,            
         };
+        AllListIdle = new List<List<Sprite>>
+        {
+            CannonIdle,
+            IceTowerIdle,
+            FireTowerIdle,
+            BoltTowerIdle,
+            WideCanonIdle,
+            ArrowBotIdle,
+            ManaTowerIdle
+        };
+
+
 
 
         AllEnemy = new List<GameObject>
@@ -211,21 +230,7 @@ public class GameAsset : MonoBehaviour
         };
 
 
-
-
-        AllListIdle = new List<List<Sprite>>
-        {
-            CannonIdle,
-            IceTowerIdle,
-            FireTowerIdle,
-        };
-
-
-
-
-
-
-
+        //Currently no usage 
         AllCardVisual = new List<Sprite>
         {
             Cannon,
@@ -246,6 +251,18 @@ public class GameAsset : MonoBehaviour
 
 
 
+
+        // for(int i = 0; i <= //numbers dividable by 64 ?? ; i += 64)
+        
+            // Cut image based on 64 X 64
+            // Add image to list 
+        
+
+        // if (Prefab's file TowerA.Name == TowerA)
+        
+            // Add TowerA into List
+        
+      
 
     }
 

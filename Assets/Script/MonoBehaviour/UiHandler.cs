@@ -70,14 +70,11 @@ public class UiHandler : MonoBehaviour
     [SerializeField] public GameObject StatsTextBoxHolder;
 
 
-
-
-
     // Debug Related Ui
     [Header("=== Debug State ===")]
     [SerializeField] public TextMeshProUGUI DebugGameState;
     [SerializeField] public TextMeshProUGUI DebugCanDeploy;
-     
+    [SerializeField] public GameObject DebugTilesHolder; 
 
     // DeckHandler Reference // 
     [SerializeField] DeckHandler deckHandler;
@@ -86,7 +83,7 @@ public class UiHandler : MonoBehaviour
 
     // EnemyDebugDeploy Use Buttons
     [Header("===Enemy Debug State ===")]
-    [SerializeField] public GameObject EnemyDebugDeploy;
+    [SerializeField] public GameObject EnemyDebugDeployLayer;
 
     [SerializeField] Button Slime;
     [SerializeField] Button BunnySlime;

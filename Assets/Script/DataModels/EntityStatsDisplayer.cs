@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class StatsDisplayer : MonoBehaviour
+public class EntityStatsDisplayer : MonoBehaviour
 {
     public Entity TextBoxEntity;
     [SerializeField] public GameObject textDisplayer;
